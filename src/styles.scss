@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~animate.css/animate.css";
+
+html, body
+{
+    margin: 0;
+    padding: 0;
+} 
+
+* {
+    //font-family: 'Dosis', sans-serif;
+    //font-family: 'Fredoka One', cursive;
+    font-family: 'Red Hat Display', sans-serif;
+    //font-family: 'Tajawal', sans-serif;
+    scroll-behavior: smooth;
+}
+
+.heading {
+    font-family: 'Teko', sans-serif;
+}
