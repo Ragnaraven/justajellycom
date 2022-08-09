@@ -26,6 +26,8 @@ $page-padding: 3rem;
     min-height: CALC(100vh - $page-padding * 2);
     max-width:  CALC(100vw - $page-padding * 2);
 
+    overflow: hidden;
+
     padding: $page-padding;
 
     .content-wrapper {
@@ -117,7 +119,7 @@ $page-padding: 3rem;
 
                     .intro {
                         font-size: 10pt;
-                        letter-spacing: 0.235ch;
+                        letter-spacing: 0.2ch;
                     }
 
                     h1 {
