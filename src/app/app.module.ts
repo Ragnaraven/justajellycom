@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgwWowModule } from 'ngx-wow';
 
 @NgModule({
   declarations: [
@@ -11,8 +10,7 @@ import { NgwWowModule } from 'ngx-wow';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    NgwWowModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
