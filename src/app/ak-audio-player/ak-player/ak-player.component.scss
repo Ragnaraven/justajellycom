@@ -124,6 +124,11 @@ svg{
 
             .lastNext {
                 font-size: 0.9rem; 
+                width: 10ch;
+
+                &:first-of-type {
+                    text-align: right;
+                }
             }
 
             button {
@@ -132,6 +137,12 @@ svg{
                 flex-direction: column;
                 margin: 0 0.25rem;
 
+                &:hover {
+                    svg {
+                        fill: $secondary;
+                    }
+                }
+                
                 svg{              
                     &.active {            
                         fill: $secondary;
@@ -165,8 +176,17 @@ svg{
 
     .volume {
         width: 200px;
-        #volume-scrubber {
-            width: 150px;
+
+        .volume-icon-container {
+            &:hover {
+                svg {
+                    fill: $secondary;
+                }
+            }
+
+            #volume-scrubber {
+                width: 150px;
+            }            
         }
     }
 }

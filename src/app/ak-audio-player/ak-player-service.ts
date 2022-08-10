@@ -250,6 +250,17 @@ export class AkPlayerService {
       this.state.loopState = LoopState.Off;      
   }
 
+  lastVol = 0;
+  toggleMute () {
+    if(!this.isVolumeMuted) {
+      this.lastVol = this.audioObj.volume;
+      this.changeVolume(0);
+    }
+    else {
+      this.changeVolume(this.lastVol);
+    }
+  }
+
   public changeVolume (value: number) {
     this.audioObj.volume = value;
 
