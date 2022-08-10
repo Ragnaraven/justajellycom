@@ -29,57 +29,23 @@
       </a> 
     </div>
     <div class="media-container">
-      <ak-player nullImageFallback="assets/justajelly-icon.svg"></ak-player>
+      <ak-player [nullImageFallback]="nullImageFallback"></ak-player>
 
       <div id="library">
         <div class="library-container">
-          <h2 style="width: 100%">Music Library</h2>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
-          <div>Example</div>
+          <h2 style="width: 100%">Original Music Library</h2>
+          <div style="width: 100%; margin-bottom: 1rem; font-size: 1rem;">All Rights Reserved.</div>
+          <button *ngFor="let song of songList" (click)="playSong(song)" class="songOption flexRow alignItemsCenter flexGrow">
+              <img class="songImage" *ngIf="song.image ?? nullImageFallback" src="{{song.image ?? nullImageFallback}}"/>
+              <div class="songDescContainer flexCol justifyContentCenter">
+                  <div class="songAlbumArtist flexRow alignItemsEnd">
+                    <div class="songName">{{ song.name }} </div>
+                    <div *ngIf="showAlbumName" class="songAlbum">{{ song.album ?? "-"}} </div>
+                    <div class="songArtist">{{ song.artist ?? "-"}} </div>                      
+                  </div>
+                  <div class="songDescription">{{ song.description ?? "-"}} </div>
+              </div>
+          </button>
         </div>
       </div>
         

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject, takeUntil } from 'rxjs';
 import * as moment from "moment";
+import { Song } from './AkPlayer';
 
 export enum PlayState {
   Paused,
@@ -41,7 +42,7 @@ export class AkPlayerService {
   private state: StreamState = {
     playState: PlayState.Paused,
     loopState: LoopState.Off,
-    volumeState: VolumeState.Low,
+    volumeState: VolumeState.High,
     shuffle: false,
 
     readableCurrentTime: '',
@@ -88,6 +89,10 @@ export class AkPlayerService {
     "loadstart"
   ];
   
+  private playStream(url: any): Observable<unknown> {
+    return this.streamObservable(url).pipe(takeUntil(this.stop$));
+  }
+
   private streamObservable(url: string) {
     return new Observable(observer => {
       // Play audio
@@ -152,11 +157,11 @@ export class AkPlayerService {
     });
   }
 
-  playStream(url: any) {
-    return this.streamObservable(url).pipe(takeUntil(this.stop$));
-  }
+  private playingSong: Song | undefined;
 
   constructor() { }
+
+  public get currentSong(): Song | undefined { return this.playingSong; }
 
   public get isShuffleOn(): boolean { return this.state.shuffle; }
 
@@ -171,6 +176,12 @@ export class AkPlayerService {
   public get isVolumeLow():   boolean { return this.state.volumeState == VolumeState.Low; }
   public get isVolumeHigh():  boolean { return this.state.volumeState == VolumeState.High; }
 
+  public get readableCurrentTime(): string { return this.state.readableCurrentTime !== undefined && this.state.readableCurrentTime !== '' ? this.state.readableCurrentTime : "-"; }
+  public get readableDuration(): string {    return this.state.readableDuration    !== undefined && this.state.readableDuration    !== '' ? this.state.readableDuration : "-"; }
+
+  public get volume(): number { return this.audioObj.volume; }
+
+  
   public toggleShuffle () {
     this.state.shuffle = !this.state.shuffle;
   }
@@ -221,14 +232,33 @@ export class AkPlayerService {
   }
 
   public changeVolume (value: number) {
-    console.log(value);
+    this.audioObj.volume = value;
+
+    if(value == 0)
+      this.state.volumeState = VolumeState.Muted;
+    else if(value < 0.6)
+      this.state.volumeState = VolumeState.Low;
+    else if(value >= 0.6)
+        this.state.volumeState = VolumeState.High;
+
+    this.stateChange.next(this.state);
   }
 
   public playbackScrub (value: number) {
-    console.log(value);
+    const momentTime = (this.state?.duration ?? 0);
+    this.seekTo(momentTime * value);
   }
 
-  public formatTime(time: number, format: string = "HH:mm:ss") {
+  public playSong(song: Song) {
+    this.pause();
+
+    this.playingSong = song;
+    this.playStream("assets/library/" + song.filename).subscribe(playstate => {
+      
+    });
+  }
+
+  public formatTime(time: number, format: string = "mm:ss") {
     const momentTime = time * 1000;
     return moment.utc(momentTime).format(format);
   }

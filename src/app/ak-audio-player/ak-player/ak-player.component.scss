@@ -1,5 +1,9 @@
 @import "../../theme.scss";
 
+:host {
+    display: block;
+}
+
 button, input[type="submit"], input[type="reset"] {
 	background: none;
 	color: inherit;
@@ -9,6 +13,53 @@ button, input[type="submit"], input[type="reset"] {
 	cursor: pointer;
 	outline: inherit;
 }
+
+/*Chrome*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    input[type='range'] {
+        cursor: pointer;
+        overflow: hidden;
+        width: 80px;
+        height: 10px;
+        -webkit-appearance: none;
+        background-color: $primary-darker;
+    }
+    
+    input[type='range']::-webkit-slider-runnable-track {
+      height: 10px;
+      -webkit-appearance: none;
+      color: $primary-darker;
+    }
+    
+    input[type='range']::-webkit-slider-thumb {
+      width: 10px;
+      -webkit-appearance: none;
+      height: 11px;
+      background: $secondary;
+      box-shadow: -4096px 0 0 4096px $secondary-darker;
+    }
+}
+
+/** FF*/
+input[type="range"]::-moz-range-progress {
+  background-color:  $secondary; 
+}
+input[type="range"]::-moz-range-track {  
+  background-color:  $primary;
+}
+/* IE*/
+input[type="range"]::-ms-fill-lower {
+  background-color:  $secondary; 
+}
+input[type="range"]::-ms-fill-upper {  
+  background-color:  $primary;
+}
+
+/*
+* {
+    border: 1px solid white;
+}*/
+
 
 svg{                    
     fill: $text-primary;
@@ -41,6 +92,7 @@ svg{
 
     .info {
         font-size: 1rem;
+        width: 200px;
 
         .currentSongImage {
             max-height: 4rem;
@@ -94,10 +146,21 @@ svg{
             #playback-range {
                 margin: 0 1em;
             }
+
+            div {
+                &:first-child {
+                    text-align: right;
+                }
+
+                width: 6ch;
+            }
         }
     }
 
     .volume {
-
+        width: 200px;
+        #volume-scrubber {
+            width: 150px;
+        }
     }
 }

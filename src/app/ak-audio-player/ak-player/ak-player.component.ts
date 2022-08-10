@@ -1,16 +1,6 @@
 import { Component, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { AkPlayerService } from '../ak-player-service';
+import { AkPlayerService, StreamState } from '../ak-player-service';
 import { Song } from '../AkPlayer';
-
-let TestSong: Song = {
-  id: 0,
-  filename: "assets/Waltz.mp3",
-  name: "Waltz",
-  album: "Just A Jelly",
-  artist: "Aidan McKenna",
-  date: new Date(),
-  image: undefined
-};
 
 @Component({
   selector: 'ak-player',
@@ -19,8 +9,6 @@ let TestSong: Song = {
 })
 export class AkPlayerComponent implements OnInit {
   
-  @Output() currentSong: Song | undefined = TestSong;
-
   @Input() showAlbumName = false;
   @Input() nullImageFallback ?: string;
 
@@ -29,8 +17,7 @@ export class AkPlayerComponent implements OnInit {
   playPauseActive = false;
   toggleRepeatActive = false; 
 
-  currentPlayTime = "0:00";
-  songLength = "0:00";
+  streamState: StreamState | undefined;
 
   constructor(
     public akPlayerService: AkPlayerService,
@@ -38,6 +25,9 @@ export class AkPlayerComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.akPlayerService.getState().subscribe((streamState) => {
+      this.streamState = streamState as unknown as StreamState;
+    })
   }
 
   playbackChange(event: any) {
@@ -48,9 +38,18 @@ export class AkPlayerComponent implements OnInit {
     this.akPlayerService.changeVolume(event.target.value / 100);
   }
 
-  tempTest() {
-    let file = "localhost:4200/" + this.currentSong?.filename;
-    console.log(file)
-    this.akPlayerService.playStream(file);
+  getSongProgress(): number {
+    console.log()
+    return (
+      (
+        (
+          (this.streamState?.currentTime ?? 0)
+          / 
+          (this.streamState?.duration ?? 1)
+        )
+        * 100 
+      )
+    )
+    ?? 0;
   }
 }

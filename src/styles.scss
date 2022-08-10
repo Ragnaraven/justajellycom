@@ -38,8 +38,16 @@ html, body
     align-items: center;
 }
 
+.alignItemsEnd {
+    align-items: end;
+}
+
 .justifyContentCenter {
     justify-content: center;
+}
+
+.justifyContentEnd {
+    justify-content: end;
 }
 
 .flexGrow {

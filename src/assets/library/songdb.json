@@ -1,0 +1,32 @@
+[
+    {
+        "id": 0,
+        "filename": "Song_1.mp3",
+        "name": "Song 1",
+        "album": "Just a Jelly",
+        "artist": "Aidan McKenna",
+        "date": "8/9/2020",
+        "image": null,
+        "description": "A heavy hitting and dramatic piece. The first song I felt confident with the mixing and audio editing."
+    },
+    {
+        "id": 1,
+        "filename": "Song_2.mp3",
+        "name": "Song 2",
+        "album": "Just a Jelly",
+        "artist": "Aidan McKenna",
+        "date": "8/10/2020",
+        "image": null,
+        "description": "A solo piano waltz with a hint of strings to make a fuller sound"
+    },
+    {
+        "id": 2,
+        "filename": "Song_3.mp3",
+        "name": "Song 3",
+        "album": "Just a Jelly",
+        "artist": "Aidan McKenna",
+        "date": "8/10/2020",
+        "image": null,
+        "description": "Reimagined cover of Ben Folds Five's Cigarette"
+    }
+]
