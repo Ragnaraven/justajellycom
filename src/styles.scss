@@ -1,3 +1,7 @@
+$primary: #3120e0ff;
+$secondary: #f15412ff;
+$accent: #05031e;
+
 html, body
 {
     margin: 0;
@@ -14,4 +18,30 @@ html, body
 
 .heading {
     font-family: 'Teko', sans-serif;
+}
+
+.flexRow {
+    display: flex;
+    flex-direction: row;    
+}
+
+.flexCol {
+    display: flex;
+    flex-direction: column;
+}
+
+.width100 {
+    width: 100%;
+}
+
+.alignItemsCenter {
+    align-items: center;
+}
+
+.justifyContentCenter {
+    justify-content: center;
+}
+
+.flexGrow {
+    flex: 1;
 }

@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AkPlayerComponentComponent } from './ak-player-component/ak-player-component.component';
-
-
+import { AkPlayerComponent } from './ak-player/ak-player.component';
 
 @NgModule({
   declarations: [
-    AkPlayerComponentComponent
+    AkPlayerComponent
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    AkPlayerComponent
   ]
 })
 export class AkAudioPlayerModule { }

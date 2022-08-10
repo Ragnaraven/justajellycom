@@ -1,0 +1,103 @@
+@import "../../theme.scss";
+
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+svg{                    
+    fill: $text-primary;
+}
+
+.smallIcon {
+    svg {
+        transform: scale(0.5);
+    }
+}
+
+.midIcon {
+    svg {
+        transform: scale(0.85);
+    }
+}
+
+.largeIcon {
+    svg {
+        transform: scale(1.1);
+    }
+}
+
+#akPlayer {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    padding: 0.75em 0.5em;
+    width: 100%;
+
+    .info {
+        font-size: 1rem;
+
+        .currentSongImage {
+            max-height: 4rem;
+            max-width: 4rem;
+        }
+
+        .currentSongDescContainer {
+            margin-left: 0.5rem;
+
+            .currentSongName {
+                font-weight: bold;
+                font-size: 1.1rem;
+            }
+
+            .currentSongAlbum {
+                font-size: 1rem;                   
+            }           
+
+            .currentSongArtist {  
+                font-size: 0.9rem;              
+            }
+ 
+        }
+
+    }
+
+    .controls {        
+        .buttons {
+            button {
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                margin: 0 0.25em;
+
+                svg{              
+                    &.active {            
+                        fill: $secondary;
+                    }
+
+                    &.activated {            
+                        fill: $secondary;
+                    }
+                }
+            }
+
+        }
+
+        .scrub-container {
+            font-size: 12pt;
+            margin: 0.5em 1em 0 1em;
+            #playback-range {
+                margin: 0 1em;
+            }
+        }
+    }
+
+    .volume {
+
+    }
+}

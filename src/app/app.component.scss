@@ -1,7 +1,5 @@
-$primary: #3120e0ff;
-$secondary: #f15412ff;
-$accent: #05031e;
- 
+@import "./theme.scss";
+
 .icon {
     $max-size: 4rem;
     max-width: $max-size;
@@ -11,6 +9,7 @@ $accent: #05031e;
 .spacer {
     flex: 1;
 }
+
 
 $page-padding: 3rem;
 .page {
@@ -25,8 +24,6 @@ $page-padding: 3rem;
 
     min-height: CALC(100vh - $page-padding * 2);
     max-width:  CALC(100vw - $page-padding * 2);
-
-    overflow: hidden;
 
     padding: $page-padding;
 
