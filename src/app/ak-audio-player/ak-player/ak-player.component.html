@@ -15,6 +15,8 @@
                 <svg [ngClass]="{'active': akPlayerService.isShuffleOn}" xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M29.05 40.5v-3h6.25l-9.2-9.15 2.1-2.15 9.3 9.2v-6.35h3V40.5Zm-19.45 0-2.1-2.15 27.9-27.9h-6.35v-3H40.5V18.9h-3v-6.3Zm10.15-18.7L7.5 9.6l2.15-2.15 12.25 12.2Z"/></svg>
             </button>-->
 
+            <div class="lastNext" *ngIf="showNextAndLast"><em>{{ akPlayerService.playlist.last(true)?.name ?? '-' }}</em></div>
+
             <button (click)="akPlayerService.lastSong()" class="midIcon flexRow justifyContentCenter alignItemsCenter" (mousedown)="lastSongActive=true" (mouseup)="lastSongActive=false">
                 <svg [ngClass]="{'active': lastSongActive}" xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M12 36V12h3v24Zm22.35-.15-11.7-11.7 11.7-11.7 2.15 2.15-9.55 9.55 9.55 9.55Z"/></svg>
             </button>
@@ -24,10 +26,11 @@
                 <svg *ngIf="akPlayerService.isPlaying" [ngClass]="{'active': playPauseActive}" xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M18.5 32h3V16h-3Zm8 0h3V16h-3ZM24 44q-4.1 0-7.75-1.575-3.65-1.575-6.375-4.3-2.725-2.725-4.3-6.375Q4 28.1 4 24q0-4.15 1.575-7.8 1.575-3.65 4.3-6.35 2.725-2.7 6.375-4.275Q19.9 4 24 4q4.15 0 7.8 1.575 3.65 1.575 6.35 4.275 2.7 2.7 4.275 6.35Q44 19.85 44 24q0 4.1-1.575 7.75-1.575 3.65-4.275 6.375t-6.35 4.3Q28.15 44 24 44Zm0-3q7.1 0 12.05-4.975Q41 31.05 41 24q0-7.1-4.95-12.05Q31.1 7 24 7q-7.05 0-12.025 4.95Q7 16.9 7 24q0 7.05 4.975 12.025Q16.95 41 24 41Zm0-17Z"/></svg>
             </button>
 
-            <button (click)="akPlayerService.lastSong()"  class="midIcon flexRow justifyContentCenter alignItemsCenter"(mousedown)="nextSongActive=true" (mouseup)="nextSongActive=false">
+            <button (click)="akPlayerService.nextSong()"  class="midIcon flexRow justifyContentCenter alignItemsCenter"(mousedown)="nextSongActive=true" (mouseup)="nextSongActive=false">
                 <svg [ngClass]="{'active': nextSongActive}" xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="m13.6 35.75-2.15-2.15 9.6-9.6-9.6-9.6 2.15-2.15L25.35 24ZM33 36V12h3v24Z"/></svg>
             </button>
 
+            <div class="lastNext" *ngIf="showNextAndLast"><em>{{ akPlayerService.playlist.next(true)?.name ?? '-' }}</em></div>
             <!--
             <button (click)="akPlayerService.toggleRepeat()" class="smallIcon flexRow justifyContentCenter alignItemsCenter" (mousedown)="toggleRepeatActive=true" (mouseup)="toggleRepeatActive=false">
                 <svg *ngIf="akPlayerService.isNotLooping || akPlayerService.isLoopingInfinite" [ngClass]="{'active': toggleRepeatActive, 'activated': akPlayerService.isLoopingInfinite }" xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="m14 44-8-8 8-8 2.1 2.2-4.3 4.3H35v-8h3v11H11.8l4.3 4.3Zm-4-22.5v-11h26.2l-4.3-4.3L34 4l8 8-8 8-2.1-2.2 4.3-4.3H13v8Z"/></svg>

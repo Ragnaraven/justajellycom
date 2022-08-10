@@ -1,15 +1,5 @@
 @import "./theme.scss";
 
-button, input[type="submit"], input[type="reset"] {
-	background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
-}
-
 .icon {
     $max-size: 4rem;
     max-width: $max-size;
@@ -57,7 +47,6 @@ $page-padding: 3rem;
                 align-items: center;
 
                 a, a:visited {
-                    text-transform: uppercase;
 
                     background-image: linear-gradient(
                         to right,
@@ -68,12 +57,14 @@ $page-padding: 3rem;
 
                     background-size: 200% 100%;
                     background-position: -100%;
+                    cursor: pointer;
                     display: inline-block;
                     margin: 0 1rem;
                     padding: 0;
                     position: relative;
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
+                    text-transform: uppercase;
                     transition: all 0.3s ease-in-out;
                     white-space: nowrap;
 
@@ -149,7 +140,12 @@ $page-padding: 3rem;
                 text-decoration: none;
                 font-size: 14pt;
 
+                animation-duration: 1.5s;
+                animation-name: bob;
+                animation-iteration-count: infinite;
+
                 transition: all .2s ease-in-out;
+
                 &:hover {
                     transform: scale(1.2);
                 }
@@ -163,10 +159,6 @@ $page-padding: 3rem;
                     margin-bottom: 8px;
                     height: 48px;
                     width: 48px;
-                    
-                    animation-duration: 1.5s;
-                    animation-name: bob;
-                    animation-iteration-count: infinite;
                 }
             }
         }    
@@ -174,6 +166,7 @@ $page-padding: 3rem;
         .media-container {
             ak-player {
                 background-color: $primary;
+                border-radius: 4px;
                 position: sticky;
                 position: -webkit-sticky;
                 top: 0;
@@ -191,44 +184,6 @@ $page-padding: 3rem;
                     display: flex;
                     flex-direction: column;
                     width: 100%;
-
-                    .songOption {
-                        font-size: 1rem;
-                        margin-bottom: 1rem;
-                        width: 100%;
-
-                        .songImage {
-                            max-height: 4rem;
-                            max-width: 4rem;
-                        }
-
-                        .songDescContainer {
-                            margin-left: 0.5rem;
-
-                            .songAlbumArtist {
-                                div {
-                                    margin-right: 0.5rem;
-                                }
-
-                                .songName {
-                                    font-weight: bold;
-                                    font-size: 1.1rem;
-                                }
-
-                                .songAlbum {
-                                    font-size: 1rem;    
-                                }
-
-                                .songArtist {
-                                    font-size: 0.8rem; 
-                                }                                    
-                            }
-
-                            .songDescription {
-                                font-size: 0.9rem;                                 
-                            }
-                        }
-                    }
                 }            
             }                
         }

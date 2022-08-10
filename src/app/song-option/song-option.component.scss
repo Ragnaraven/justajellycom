@@ -1,0 +1,61 @@
+@import "../theme.scss";
+
+.songOption {
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+    width: 100%;
+
+    &:hover {
+        background-color: $primary-darker;
+    }
+
+    &:active, &.currentlyPlaying {
+        background-color: $secondary;
+    }
+
+    .index {
+        font-size: 1.5rem;
+        margin-right: 0.25rem;
+    }
+
+    .songImage {
+        box-sizing: border-box;
+        max-height: 4rem;
+        max-width: 4rem;
+        padding: 0.25rem;
+    }
+
+    .songDescContainer {
+        margin-left: 0.5rem;
+
+        .songAlbumArtist {
+            div {
+                margin-right: 0.5rem;
+            }
+
+            .songName {
+                font-weight: bold;
+                font-size: 1.1rem;
+            }
+
+            .songAlbum {
+                font-size: 1rem;    
+            }
+
+            .songArtist {
+                font-size: 0.8rem; 
+            }     
+ 
+            .songDate {  
+                color: #aaa;
+                font-size: 0.8rem;              
+            }                               
+        }
+
+        .songDescription {
+            font-size: 0.9rem;                                 
+        }
+    }
+}

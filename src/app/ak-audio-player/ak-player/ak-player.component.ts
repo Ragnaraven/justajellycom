@@ -11,6 +11,7 @@ export class AkPlayerComponent implements OnInit {
   
   @Input() showAlbumName = false;
   @Input() nullImageFallback ?: string;
+  @Input() showNextAndLast = true;
 
   lastSongActive = false;
   nextSongActive = false;

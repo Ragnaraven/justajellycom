@@ -1,0 +1,13 @@
+<button (click)="playSong(song)" class="songOption flexRow alignItemsCenter flexGrow" [ngClass]="{'currentlyPlaying': song == akPlayerService.currentSong}">
+    <div class="index">{{index + 1}}.</div>
+    <img class="songImage" *ngIf="song.image ?? nullImageFallback" src="{{song.image ?? nullImageFallback}}"/>
+    <div class="songDescContainer flexCol justifyContentCenter">
+        <div class="songAlbumArtist flexRow alignItemsEnd">
+            <div class="songName">{{ song.name }} </div>
+            <div *ngIf="showAlbumName" class="songAlbum">{{ song.album ?? "-"}} </div>
+            <div class="songArtist">{{ song.artist ?? "-"}} </div>     
+            <div class="songDate"><em>{{ song.date }}</em></div>                 
+        </div>
+        <div class="songDescription">{{ song.description ?? "-"}} </div>
+    </div>
+</button>

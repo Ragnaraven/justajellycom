@@ -87,7 +87,7 @@ svg{
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
-    padding: 0.75em 0.5em;
+    padding: 0.25em 0.5em;
     width: 100%;
 
     .info {
@@ -114,18 +114,23 @@ svg{
             .currentSongArtist {  
                 font-size: 0.9rem;              
             }
- 
         }
 
     }
 
     .controls {        
         .buttons {
+            margin: 0.5rem 0;
+
+            .lastNext {
+                font-size: 0.9rem; 
+            }
+
             button {
                 align-items: center;
                 display: flex;
                 flex-direction: column;
-                margin: 0 0.25em;
+                margin: 0 0.25rem;
 
                 svg{              
                     &.active {            
@@ -142,9 +147,10 @@ svg{
 
         .scrub-container {
             font-size: 12pt;
-            margin: 0.5em 1em 0 1em;
+            margin: 0 0 0.25rem 0;
+
             #playback-range {
-                margin: 0 1em;
+                margin: 0 1rem;
             }
 
             div {

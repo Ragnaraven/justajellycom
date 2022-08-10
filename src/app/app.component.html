@@ -5,10 +5,10 @@
       <div class="navbar">
         <img src="assets/justajelly.svg" alt="Just A Jelly Icon" class="icon">
         <div class="spacer"></div>
-        <a href="#">Home</a>
-        <a href="#library">Library</a>
-        <a href="#aboutme">About Me</a>
-        <a href="#contact">Contact</a>
+        <a (click)="smoothScrollToAnchor('')">Home</a>
+        <a (click)="smoothScrollToAnchor('library')">Library</a>
+        <a (click)="smoothScrollToAnchor('aboutme')">About Me</a>
+        <a (click)="smoothScrollToAnchor('contact')">Contact</a>
       </div>
       <div class="content">
         <div class="about-me-container">
@@ -18,10 +18,9 @@
         </div>
         <img src="assets/justajelly.svg" alt="Just A Jelly Icon" class="main-icon">
       </div>
-      <a href="#library" class="home-footer">
+      <a href="#library" class="home-footer" >
         Explore my portfolio      
         <svg 
-          class="wow pulse animated" 
           xmlns="http://www.w3.org/2000/svg" 
           height="48"
           width="48"
@@ -35,21 +34,17 @@
         <div class="library-container">
           <h2 style="width: 100%">Original Music Library</h2>
           <div style="width: 100%; margin-bottom: 1rem; font-size: 1rem;">All Rights Reserved.</div>
-          <button *ngFor="let song of songList" (click)="playSong(song)" class="songOption flexRow alignItemsCenter flexGrow">
-              <img class="songImage" *ngIf="song.image ?? nullImageFallback" src="{{song.image ?? nullImageFallback}}"/>
-              <div class="songDescContainer flexCol justifyContentCenter">
-                  <div class="songAlbumArtist flexRow alignItemsEnd">
-                    <div class="songName">{{ song.name }} </div>
-                    <div *ngIf="showAlbumName" class="songAlbum">{{ song.album ?? "-"}} </div>
-                    <div class="songArtist">{{ song.artist ?? "-"}} </div>                      
-                  </div>
-                  <div class="songDescription">{{ song.description ?? "-"}} </div>
-              </div>
-          </button>
+          <app-song-option *ngFor="let song of akPlayerService.playlist.songs; let index = index" [song]="song" [index]="index"></app-song-option>
         </div>
-      </div>
-        
+      </div>   
+
+      <div id="aboutme">
+        About Me coming soon!   
     </div>
+    
+    <div id="contact">
+      Contact me coming soon!
+  </div>
   </div>
 </div>
 

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject, takeUntil } from 'rxjs';
 import * as moment from "moment";
-import { Song } from './AkPlayer';
+import { Playlist, Song } from './AkPlayer';
+import { HttpClient } from '@angular/common/http';
 
 export enum PlayState {
   Paused,
@@ -140,6 +141,9 @@ export class AkPlayerService {
       case "error":
         this.resetState();
         this.state.error = true;
+        break;        
+      case "ended":
+        this.nextSong();
         break;
     }
     this.stateChange.next(this.state);
@@ -157,11 +161,22 @@ export class AkPlayerService {
     });
   }
 
-  private playingSong: Song | undefined;
+  public playlist: Playlist = new Playlist();
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+    ) 
+  {
+      this.http.get<Song[]>('assets/library/songdb.json').subscribe(
+        (songList: Song[]) => {
+          this.playlist.addSongs(...songList);
+          this.playSongIndex(0);
+          this.pause();
+      }); 
 
-  public get currentSong(): Song | undefined { return this.playingSong; }
+  }
+
+  public get currentSong(): Song | undefined { return this.playlist.current; }
 
   public get isShuffleOn(): boolean { return this.state.shuffle; }
 
@@ -187,11 +202,15 @@ export class AkPlayerService {
   }
 
   public lastSong() {
-
+    this.pause();
+    this.playlist.playLast(true);
+    this.playSongIndex(this.playlist.currentIndex);
   }
 
   public nextSong() {
-
+    this.pause();
+    this.playlist.playNext(true);
+    this.playSongIndex(this.playlist.currentIndex);
   }
 
   public play() {
@@ -252,13 +271,27 @@ export class AkPlayerService {
   public playSong(song: Song) {
     this.pause();
 
-    this.playingSong = song;
-    this.playStream("assets/library/" + song.filename).subscribe(playstate => {
-      
-    });
+    this.playlist.playSong(song);
+    this.playCurrent();
   }
 
-  public formatTime(time: number, format: string = "mm:ss") {
+  public playSongIndex(index: number) {
+    this.pause();
+
+    this.playlist.playAtIndex(index);
+    this.playCurrent();
+  }
+
+  private playCurrent () {
+    if(this.playlist.current)
+      this.playStream("assets/library/" + this.playlist.current?.filename).subscribe(playstate => this.playstateChange(playstate));
+  }
+
+  public playstateChange (playstate: any) {
+
+  }
+
+  public formatTime(time: number, format: string = "m:ss") {
     const momentTime = time * 1000;
     return moment.utc(momentTime).format(format);
   }
