@@ -11,10 +11,14 @@
 }
 
 
+@media only screen and (max-width: 1000px) {
+    #headerIcon {
+        display: none;
+    }
+}
+
 $page-padding: 3rem;
 .page {
-    background-color: $accent;
-
     color: #efefef;
 
     font-size: 18pt;
@@ -44,10 +48,10 @@ $page-padding: 3rem;
             .navbar { 
                 display: flex; 
                 flex-direction: row;
+                flex-wrap: wrap;
                 align-items: center;
 
                 a, a:visited {
-
                     background-image: linear-gradient(
                         to right,
                         $secondary,

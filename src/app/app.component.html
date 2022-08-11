@@ -2,31 +2,34 @@
 <div class="page">
   <div class="content-wrapper">
     <div id="home">
-      <div class="navbar">
-        <img src="assets/justajelly.svg" alt="Just A Jelly Icon" class="icon">
+      <div id="desktopNavBar" class="navbar" *ngIf="aspectRatio.isLandscape" >
+        <img src="assets/justajelly.svg" alt="Just A Jelly Icon" id="headerIcon" class="icon">
         <div class="spacer"></div>
         <a (click)="smoothScrollToAnchor('')">Home</a>
         <a (click)="smoothScrollToAnchor('library')">Library</a>
         <a (click)="smoothScrollToAnchor('aboutme')">About Me</a>
         <a (click)="smoothScrollToAnchor('contact')">Contact</a>
       </div>
+
       <div class="content">
         <div class="about-me-container">
           <img src="assets/justajelly.svg" alt="Just A Jelly Icon" class="id-image">
           <div class="intro">JustAJelly.com - The music porfolio of</div>
           <h1 class="heading">Aidan McKenna</h1>
         </div>
-        <img src="assets/justajelly.svg" alt="Just A Jelly Icon" class="main-icon">
+        <img *ngIf="aspectRatio.isLandscape" src="assets/justajelly.svg" alt="Just A Jelly Icon" class="main-icon">
       </div>
       <a href="#library" class="home-footer" >
-        Explore my portfolio      
+        Explore my portfolio 
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
           height="48"
           width="48"
-        ><path d="m24 30.75-12-12 2.15-2.15L24 26.5l9.85-9.85L36 18.8Z"/></svg>
-      </a> 
+        ><path d="m24 30.75-12-12 2.15-2.15L24 26.5l9.85-9.85L36 18.8Z"/></svg> 
+    </a> 
     </div>
+    
+    <!--
     <div class="media-container">
       <ak-player [nullImageFallback]="nullImageFallback"></ak-player>
 
@@ -40,11 +43,11 @@
 
       <div id="aboutme">
         About Me coming soon!   
-    </div>
-    
-    <div id="contact">
-      Contact me coming soon!
-  </div>
+      </div>
+      
+      <div id="contact">
+        Contact me coming soon!
+    </div>-->
   </div>
 </div>
 
