@@ -10,14 +10,16 @@
         <a (click)="smoothScrollToAnchor('aboutme')">About Me</a>
         <a (click)="smoothScrollToAnchor('contact')">Contact</a>
       </div>
-
+      
       <div class="content">
-        <div class="about-me-container">
+        <div class="about-me-container" [ngClass]="{'alignItemsEnd': aspectRatio.isLandscape, 'alignItemsCenter': !aspectRatio.isLandscape}">
           <img src="assets/justajelly.svg" alt="Just A Jelly Icon" class="id-image">
           <div class="intro">JustAJelly.com - The music porfolio of</div>
           <h1 class="heading">Aidan McKenna</h1>
         </div>
-        <img *ngIf="aspectRatio.isLandscape" src="assets/justajelly.svg" alt="Just A Jelly Icon" class="main-icon">
+        
+        <img *ngIf="aspectRatio.isLandscape" src="assets/justajelly.svg" alt="Just A Jelly Icon" id="main-icon">
+
       </div>
       <a href="#library" class="home-footer" >
         Explore my portfolio 
@@ -26,10 +28,9 @@
           height="48"
           width="48"
         ><path d="m24 30.75-12-12 2.15-2.15L24 26.5l9.85-9.85L36 18.8Z"/></svg> 
-    </a> 
+      </a> 
     </div>
     
-    <!--
     <div class="media-container">
       <ak-player [nullImageFallback]="nullImageFallback"></ak-player>
 
@@ -47,7 +48,7 @@
       
       <div id="contact">
         Contact me coming soon!
-    </div>-->
+    </div>
   </div>
 </div>
 
