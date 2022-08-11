@@ -32,23 +32,24 @@
     </div>
     
     <div class="media-container">
-      <ak-player [nullImageFallback]="nullImageFallback"></ak-player>
 
-      <div id="library">
-        <div class="library-container">
-          <h2 style="width: 100%">Original Music Library</h2>
-          <div style="width: 100%; margin-bottom: 1rem; font-size: 1rem;">All Rights Reserved.</div>
-          <app-song-option *ngFor="let song of akPlayerService.playlist.songs; let index = index" [song]="song" [index]="index"></app-song-option>
+        <ak-player [nullImageFallback]="nullImageFallback"></ak-player>
+
+        <div id="library">
+          <div class="library-container">
+            <h2 style="width: 100%">Original Music Library</h2>
+            <div style="width: 100%; margin-bottom: 1rem; font-size: 1rem;">All Rights Reserved.</div>
+            <app-song-option *ngFor="let song of akPlayerService.playlist.songs; let index = index" [song]="song" [index]="index"></app-song-option>
+          </div>
+        </div>   
+
+        <div id="aboutme">
+          About Me coming soon!   
         </div>
-      </div>   
-
-      <div id="aboutme">
-        About Me coming soon!   
+        
+        <div id="contact">
+          Contact me coming soon!
       </div>
-      
-      <div id="contact">
-        Contact me coming soon!
-    </div>
   </div>
 </div>
 

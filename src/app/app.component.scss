@@ -44,7 +44,7 @@ $page-padding: 3rem;
         #home {
             display: flex;
             flex-direction: column;
-            height: 100%;
+            min-height: CALC(100vh - $page-padding);
             width: 100%;
 
             .navbar { 
@@ -145,7 +145,7 @@ $page-padding: 3rem;
             .home-footer {
                 display: inline-block;
                 color: $secondary;
-                margin: auto;
+                margin: 0 auto 1rem auto;
                 text-decoration: none;
                 font-size: 14pt;
 
@@ -194,7 +194,16 @@ $page-padding: 3rem;
                     flex-direction: column;
                     width: 100%;
                 }            
-            }                
+            }   
+            
+            #aboutme {
+                height: 100vh;
+                
+            }
+
+            #contact {
+                height: 100vh;
+            }
         }
     }        
 }

@@ -85,8 +85,6 @@ svg{
 
 #akPlayer {
     box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
     padding: 0.25em 0.5em;
     width: 100%;
 
@@ -175,7 +173,7 @@ svg{
     }
 
     .volume {
-        width: 200px;
+        min-width: 200px;
 
         .volume-icon-container {
             &:hover {

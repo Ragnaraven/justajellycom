@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { ResizeService } from 'src/app/resize.service';
 import { AkPlayerService, StreamState } from '../ak-player-service';
 import { Song } from '../AkPlayer';
 
@@ -22,7 +23,7 @@ export class AkPlayerComponent implements OnInit {
 
   constructor(
     public akPlayerService: AkPlayerService,
-
+    public aspectRatio: ResizeService,
   ) { }
 
   ngOnInit(): void {
