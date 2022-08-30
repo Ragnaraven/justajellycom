@@ -196,13 +196,42 @@ $page-padding: 3rem;
                 }            
             }   
             
-            #aboutme {
-                height: 100vh;
-                
+            #aboutme {                
             }
 
             #contact {
-                height: 100vh;
+                a {
+                    img, svg {
+                        margin-right: 1rem;
+                    }
+
+                    color: $secondary;
+                    display: flex;
+
+                    svg {
+                        fill: $secondary;
+                    }
+
+                    &:hover {
+                        color: $primary;
+
+                        svg {
+                            fill: $primary;
+                        }
+                    }
+
+                    &:active {
+                        color: $primary-darker;
+
+                        svg {
+                            fill: $primary-darker;
+                        }
+                    }
+                }
+
+                .contact-me-icon {
+                    height: 3rem;
+                }
             }
         }
     }        
