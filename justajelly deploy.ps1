@@ -1,1 +1,1 @@
-ng deploy --base-href=/justajellycom/ 
+ng deploy --cname=justajelly.com
