@@ -1,8 +1,8 @@
 [
     {
         "id": 0,
-        "filename": "Song_1.mp3",
-        "name": "Song 1",
+        "filename": "Old Bones.mp3",
+        "name": "Old Bones",
         "album": "Just a Jelly",
         "artist": "Aidan McKenna",
         "date": "8/9/2022",
@@ -11,8 +11,8 @@
     },
     {
         "id": 1,
-        "filename": "Song_2.mp3",
-        "name": "Song 2",
+        "filename": "Waltz.mp3",
+        "name": "Waltz",
         "album": "Just a Jelly",
         "artist": "Aidan McKenna",
         "date": "8/10/2022",
@@ -21,12 +21,22 @@
     },
     {
         "id": 2,
-        "filename": "Song_3.mp3",
-        "name": "Song 3",
+        "filename": "Cigar.mp3",
+        "name": "Cigar",
         "album": "Just a Jelly",
         "artist": "Aidan McKenna",
         "date": "8/10/2022",
         "image": null,
         "description": "Reimagined cover of Ben Folds Five's Cigarette"
+    }
+  {
+        "id": 3,
+        "filename": "Insert Name.mp3",
+        "name": "Insert Name",
+        "album": "Just a Jelly",
+        "artist": "Aidan McKenna",
+        "date": "8/10/2022",
+        "image": null,
+        "description": "A fast paced and upbeat song"
     }
 ]
